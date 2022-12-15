@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: go
+  name: nim
   labels:
-    app: go
+    app: nim
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: go
+      app: nim
   template:
     metadata:
       labels:
-        app: go
+        app: nim
     spec:
       containers:
-      - name: go
+      - name: nim
         image: ghcr.io/${IMAGE_NAME}:main
         imagePullPolicy: Always
         resources:
