@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nim
+  name: section-project-deployment
   labels:
-    app: nim
+    app: console-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nim
+      app: console-project
   template:
     metadata:
       labels:
-        app: nim
+        app: console-project
     spec:
       containers:
-      - name: nim
-        image: ghcr.io/${IMAGE_NAME}:main
-        imagePullPolicy: Always
-        resources:
-          requests:
-            cpu: ".1"
-            memory: ".2Gi"
-          limits:
-            cpu: ".1"
-            memory: ".2Gi"
-        ports:
-        - containerPort: 8080
+        - name: console-project
+          image: ghcr.io/${IMAGE_NAME}:main
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: ".1"
+              memory: ".2Gi"
+            limits:
+              cpu: ".1"
+              memory: ".2Gi"
+          ports:
+            - containerPort: 8080
